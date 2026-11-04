@@ -315,9 +315,10 @@ def main():
         first_result = results[0]
 
         date_columns = [
-            key for key in first_result
-            if key.endswith("_%")
-        ]
+    key for key in first_result
+    if key.endswith("_%")
+    and key != "3_Session_Return_%"
+]
 
     fixed_columns = [
         "Exchange", "Symbol", "Company", "Date", "Close",
