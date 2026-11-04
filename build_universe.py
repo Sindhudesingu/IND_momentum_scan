@@ -3,12 +3,12 @@ import pandas as pd
 from pathlib import Path
 
 st.set_page_config(
-    page_title="NSE Momentum Scanner",
+    page_title="Parumal Thunai",
     page_icon="📈",
     layout="wide"
 )
 
-st.title("🇮🇳 NSE Stock Momentum Scanner")
+st.title("Perumal NSE Stock Momentum Scanner")
 st.caption("Daily momentum screening | NSE Mainboard")
 
 RESULTS_DIR = Path("results")
