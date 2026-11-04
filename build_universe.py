@@ -1,102 +1,139 @@
-
-import requests
+import streamlit as st
 import pandas as pd
-from io import BytesIO
+from pathlib import Path
 
-OUTPUT_FILE = "universe.csv"
-
-NSE_EQUITY_URL = (
-    "https://nsearchives.nseindia.com/content/equities/EQUITY_L.csv"
+st.set_page_config(
+    page_title="NSE Momentum Scanner",
+    page_icon="📈",
+    layout="wide"
 )
 
-NSE_SME_URL = (
-    "https://nsearchives.nseindia.com/emerge/corporates/content/SME_EQUITY_L.csv"
-)
+st.title("🇮🇳 NSE Stock Momentum Scanner")
+st.caption("Daily momentum screening | NSE Mainboard")
 
-HEADERS = {
-    "User-Agent": "Mozilla/5.0",
-    "Accept": "text/csv,*/*"
+RESULTS_DIR = Path("results")
+
+FILES = {
+    "Strict Momentum": RESULTS_DIR / "strict_momentum.csv",
+    "Early Momentum": RESULTS_DIR / "early_momentum.csv",
+    "All Qualified Stocks": RESULTS_DIR / "latest_all.csv"
 }
 
 
-def download_csv(url):
-    response = requests.get(
-        url,
-        headers=HEADERS,
-        timeout=30
+def load_data(path):
+    if not path.exists():
+        return pd.DataFrame()
+
+    try:
+        return pd.read_csv(path)
+    except Exception as e:
+        st.error(f"Unable to load {path.name}: {e}")
+        return pd.DataFrame()
+
+
+# Load scanner results
+strict_df = load_data(FILES["Strict Momentum"])
+early_df = load_data(FILES["Early Momentum"])
+all_df = load_data(FILES["All Qualified Stocks"])
+
+
+# Dashboard summary
+c1, c2, c3 = st.columns(3)
+
+c1.metric("Strict Momentum", len(strict_df))
+c2.metric("Early Momentum", len(early_df))
+c3.metric("Qualified Stocks", len(all_df))
+
+st.divider()
+
+
+# Category selection
+selection = st.radio(
+    "Select stock category",
+    list(FILES.keys()),
+    horizontal=True
+)
+
+data = {
+    "Strict Momentum": strict_df,
+    "Early Momentum": early_df,
+    "All Qualified Stocks": all_df
+}[selection].copy()
+
+st.subheader(selection)
+
+
+if data.empty:
+    st.info("No stocks available in this category yet.")
+
+else:
+    st.write(f"Total stocks: {len(data)}")
+
+    # Search by stock symbol
+    search = st.text_input(
+        "Search by stock symbol",
+        placeholder="Example: RELIANCE, TCS, INFY"
     )
-    response.raise_for_status()
-    return pd.read_csv(BytesIO(response.content))
 
+    if search:
+        if "Symbol" in data.columns:
+            filtered_data = data[
+                data["Symbol"].astype(str).str.contains(
+                    search.strip(),
+                    case=False,
+                    na=False
+                )
+            ]
+        else:
+            filtered_data = pd.DataFrame()
 
-def build_nse():
-    print("Downloading NSE equity list...")
-    equity = download_csv(NSE_EQUITY_URL)
+        if filtered_data.empty:
+            st.info("No matching stock found.")
+        else:
+            st.write(f"Matching stocks: {len(filtered_data)}")
 
-    print("Downloading NSE SME list...")
-    sme = download_csv(NSE_SME_URL)
+            # Show symbol and company name
+            if "Company" in filtered_data.columns:
+                st.dataframe(
+                    filtered_data[["Symbol", "Company"]],
+                    use_container_width=True,
+                    hide_index=True
+                )
 
-    equity.columns = equity.columns.str.strip().str.upper()
-    sme.columns = sme.columns.str.strip().str.upper()
+            # Show complete matching stock details
+            st.subheader("Stock Details")
 
-    required = {"SYMBOL", "NAME OF COMPANY", "SERIES"}
+            st.dataframe(
+                filtered_data,
+                use_container_width=True,
+                hide_index=True
+            )
 
-    if not required.issubset(equity.columns):
-        raise ValueError(
-            f"Unexpected NSE equity columns: {list(equity.columns)}"
+            st.download_button(
+                "Download Search Results",
+                data=filtered_data.to_csv(index=False).encode("utf-8"),
+                file_name="stock_search_results.csv",
+                mime="text/csv"
+            )
+
+    else:
+        st.dataframe(
+            data,
+            use_container_width=True,
+            hide_index=True
         )
 
-    equity["SYMBOL"] = equity["SYMBOL"].astype(str).str.strip()
-    equity["SERIES"] = (
-        equity["SERIES"].astype(str).str.strip().str.upper()
-    )
-
-    # Include only normal EQ series.
-    equity = equity[equity["SERIES"] == "EQ"].copy()
-
-    # Exclude NSE SME symbols.
-    if "SYMBOL" in sme.columns:
-        sme_symbols = set(
-            sme["SYMBOL"].astype(str).str.strip()
-        )
-        equity = equity[
-            ~equity["SYMBOL"].isin(sme_symbols)
-        ]
-
-    # Exclude matching SME ISINs when available.
-    if "ISIN NUMBER" in equity.columns and "ISIN NUMBER" in sme.columns:
-        sme_isins = set(
-            sme["ISIN NUMBER"].dropna().astype(str).str.strip()
+        st.download_button(
+            "Download CSV",
+            data=data.to_csv(index=False).encode("utf-8"),
+            file_name=selection.lower().replace(" ", "_") + ".csv",
+            mime="text/csv"
         )
 
-        equity = equity[
-            ~equity["ISIN NUMBER"].astype(str).str.strip().isin(sme_isins)
-        ]
 
-    result = pd.DataFrame({
-        "exchange": "NSE",
-        "symbol": equity["SYMBOL"],
-        "company": equity["NAME OF COMPANY"],
-        "yahoo_symbol": equity["SYMBOL"] + ".NS"
-    })
+st.divider()
 
-    return result.drop_duplicates(subset=["symbol"])
-
-
-def main():
-    nse = build_nse()
-
-    print("NSE eligible symbols:", len(nse))
-
-    if nse.empty:
-        raise ValueError("NSE stock universe is empty.")
-
-    nse.to_csv(OUTPUT_FILE, index=False)
-
-    print("NSE universe created successfully.")
-    print("Total securities:", len(nse))
-    print("Saved to:", OUTPUT_FILE)
-
-
-if __name__ == "__main__":
-    main()
+st.caption(
+    "Data is for screening and research only. "
+    "Not a buy or sell recommendation."
+)
