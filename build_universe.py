@@ -10,7 +10,7 @@ NSE_EQUITY_URL = (
     "https://nsearchives.nseindia.com/content/equities/EQUITY_L.csv"
 )
 NSE_SME_URL = (
-    "https://nsearchives.nseindia.com/content/equities/SME.csv"
+    ""https://nsearchives.nseindia.com/emerge/corporates/content/SME_EQUITY_L.csv""
 )
 
 # Conservative BSE group allowlist.
