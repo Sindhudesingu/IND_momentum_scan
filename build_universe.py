@@ -3,7 +3,7 @@ import pandas as pd
 from pathlib import Path
 
 st.set_page_config(
-    page_title="Parumal Thunai",
+    page_title="Perumal Thunai",
     page_icon="📈",
     layout="wide"
 )
