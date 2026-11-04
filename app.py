@@ -23,6 +23,7 @@ FILES = {
 def load_data(path):
     if not path.exists():
         return pd.DataFrame()
+
     return pd.read_csv(path)
 
 
@@ -59,44 +60,45 @@ st.subheader(selection)
 
 
 if data.empty:
+
     st.info("No stocks available in this category yet.")
 
 else:
+
     st.write(f"Total stocks: {len(data)}")
 
-    # Search by stock symbol
+    # Search by company name
     search = st.text_input(
-        "Search by stock symbol",
-        placeholder="Example: RELIANCE, TCS, INFY"
+        "Search by company name",
+        placeholder="Example: Reliance, Tata, Infosys, HDFC"
     )
 
     if search.strip():
-        if "Symbol" in data.columns:
+
+        if "Company" in data.columns:
+
             filtered_data = data[
-                data["Symbol"].astype(str).str.strip().str.contains(
+                data["Company"].astype(str).str.strip().str.contains(
                     search.strip(),
                     case=False,
                     na=False,
                     regex=False
                 )
             ]
+
         else:
             filtered_data = pd.DataFrame()
 
         if filtered_data.empty:
-            st.warning("No matching stock found.")
+
+            st.warning("No matching company found.")
+
         else:
-            st.success(f"Found {len(filtered_data)} matching stock(s)")
 
-            if "Company" in filtered_data.columns:
-                st.subheader("Company Details")
-                st.dataframe(
-                    filtered_data[["Symbol", "Company"]],
-                    use_container_width=True,
-                    hide_index=True
-                )
+            st.success(
+                f"Found {len(filtered_data)} matching company(s)"
+            )
 
-            st.subheader("Stock Details")
             st.dataframe(
                 filtered_data,
                 use_container_width=True,
@@ -106,11 +108,12 @@ else:
             st.download_button(
                 "Download Search Results",
                 data=filtered_data.to_csv(index=False).encode("utf-8"),
-                file_name="stock_search_results.csv",
+                file_name="company_search_results.csv",
                 mime="text/csv"
             )
 
     else:
+
         st.dataframe(
             data,
             use_container_width=True,
