@@ -1,5 +1,10 @@
-Exchange,Symbol,Company,Date,Close,3_Session_Return_%,Positive_Days_3D,30-Oct-2026_%,02-Nov-2026_%,03-Nov-2026_%,04-Nov-2026_%,RSI_14,RSI_Status,DMA_20,Avg_Volume_20D,Latest_Volume,Volume_Multiple,Avg_Turnover_20D_Rs,Strict,Early
-NSE,VRLLOG,VRL Logistics Limited,2026-11-04,331.2,27.43,3,-3.87,7.27,5.97,12.1,73.02,Preferred,281.01,977871,4403969,4.5,285800711.0,True,True
-NSE,WELSPUNLIV,Welspun Living Limited,2026-11-04,264.57,20.76,3,3.26,10.62,4.44,4.54,75.34,Moderate / Extended,224.36,8666012,32663747,3.77,2045710077.0,True,True
-NSE,BALUFORGE,Balu Forge Industries Limited,2026-11-04,504.05,13.92,3,-2.3,6.15,3.63,3.56,58.37,Preferred,466.86,595192,1049254,1.76,278974694.0,True,True
-NSE,CHAMBLFERT,Chambal Fertilizers & Chemicals Limited,2026-11-04,394.15,11.37,3,-3.23,4.05,3.65,3.26,56.19,Preferred,375.63,462856,699630,1.51,173339290.0,True,True
+Exchange,Symbol,Company,Date,Close,3_Session_Return_%,Positive_Days_3D,02-Nov-2026_%,03-Nov-2026_%,04-Nov-2026_%,05-Nov-2026_%,RSI_14,RSI_Status,DMA_20,Avg_Volume_20D,Latest_Volume,Volume_Multiple,Avg_Turnover_20D_Rs,Strict,Early
+NSE,FAZE3Q,Faze Three Limited,2026-11-05,563.85,28.75,3,2.35,3.09,20.0,4.07,75.9,Moderate / Extended,433.87,140176,883345,6.3,70152189.0,True,True
+NSE,VRLLOG,VRL Logistics Limited,2026-11-04,331.2,27.43,3,7.27,5.97,12.1,,73.02,Preferred,281.01,977871,4404105,4.5,285800711.0,True,True
+NSE,GYFTR,Gyftr Limited,2026-11-05,210.95,26.69,3,6.03,4.67,4.65,15.67,76.78,Moderate / Extended,169.52,212807,5220573,24.53,35670492.0,True,True
+NSE,WELSPUNLIV,Welspun Living Limited,2026-11-04,264.57,20.76,3,10.62,4.44,4.54,,75.34,Moderate / Extended,224.36,8666012,32671842,3.77,2045710077.0,True,True
+NSE,AMANTA,Amanta Healthcare Limited,2026-11-05,196.12,20.1,3,-0.16,5.62,7.21,6.06,60.91,Preferred,174.35,135173,261329,1.93,23560673.0,True,True
+NSE,HARIOMPIPE,Hariom Pipe Industries Limited,2026-11-05,376.5,20.0,3,0.84,4.38,3.24,11.36,69.16,Preferred,325.34,83188,6008278,72.22,26804030.0,True,True
+NSE,BIRLACABLE,Birla Cable Limited,2026-11-05,346.6,15.13,3,-4.66,5.0,4.43,5.0,53.35,Moderate / Extended,334.75,323022,602246,1.86,109914722.0,True,True
+NSE,KANSAINER,Kansai Nerolac Paints Limited,2026-11-05,204.24,13.55,3,2.04,4.03,4.38,4.57,68.43,Preferred,182.93,355699,1794766,5.05,66211650.0,True,True
+NSE,COSMOFIRST,COSMO FIRST LIMITED,2026-11-05,826.3,11.54,3,3.78,3.5,3.69,3.94,57.3,Preferred,779.59,53273,151176,2.84,42219514.0,True,True
