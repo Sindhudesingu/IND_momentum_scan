@@ -131,6 +131,5 @@ else:
 st.divider()
 
 st.caption(
-    "Data is for screening and research only. "
-    "Not a buy or sell recommendation."
+    "@perumalrayar.corp"
 )
