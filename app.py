@@ -4,10 +4,19 @@ from pathlib import Path
 
 st.set_page_config(
     page_title="Perumal Thunai",
-    page_icon="📈",
+    page_icon="imgs/RPD-ico.ico",
     layout="wide"
 )
+# Page logo and heading
+logo_path = Path("imgs/RPD_logo.jpeg")
 
+col1, col2 = st.columns([1, 5])
+
+with col1:
+    if logo_path.exists():
+        st.image(str(logo_path), width=110)
+
+with col2:
 st.title("Perumal NSE Stock Momentum Scanner")
 st.caption("Daily momentum screening | NSE Mainboard")
 
