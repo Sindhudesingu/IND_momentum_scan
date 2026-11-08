@@ -17,8 +17,8 @@ with col1:
         st.image(str(logo_path), width=110)
 
 with col2:
-st.title("Perumal NSE Stock Momentum Scanner")
-st.caption("Daily momentum screening | NSE Mainboard")
+    st.title("Perumal NSE Stock Momentum Scanner")
+    st.caption("Daily momentum screening | NSE Mainboard")
 
 RESULTS_DIR = Path("results")
 
