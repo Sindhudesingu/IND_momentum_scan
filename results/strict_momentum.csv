@@ -1,7 +1,5 @@
-Exchange,Symbol,Company,Date,Close,3_Session_Return_%,Positive_Days_3D,03-Nov-2026_%,04-Nov-2026_%,05-Nov-2026_%,06-Nov-2026_%,RSI_14,RSI_Status,DMA_20,Avg_Volume_20D,Latest_Volume,Volume_Multiple,Avg_Turnover_20D_Rs,Strict,Early
-NSE,KALAMANDIR,Sai Silks (Kalamandir) Limited,2026-11-06,89.05,31.83,3,2.46,9.1,10.05,9.79,75.67,Moderate / Extended,71.73,982925,17523008,17.83,72888627.0,True,True
-NSE,ENTERO,Entero Healthcare Solutions Limited,2026-11-06,1900.4,20.17,3,0.64,5.29,5.35,8.34,73.01,Preferred,1595.39,174596,1206757,6.91,288215061.0,True,True
-NSE,KALYANKJIL,Kalyan Jewellers India Limited,2026-11-06,590.75,16.24,3,0.54,4.1,5.85,5.49,63.98,Preferred,537.25,4540814,24972232,5.5,2441078599.0,True,True
-NSE,IIFL,IIFL Finance Limited,2026-11-06,625.75,15.55,3,-2.06,6.77,4.55,3.52,59.95,Preferred,575.3,2173079,5133848,2.36,1260138992.0,True,True
-NSE,ALEMBICLTD,Alembic Limited,2026-11-06,101.22,13.28,3,-0.5,6.0,3.28,3.48,60.95,Preferred,93.12,487913,2044153,4.19,45589640.0,True,True
-NSE,RMDRIP,R M Drip and Sprinklers Systems Limited,2026-11-06,19.1,12.88,3,4.77,3.31,4.98,4.09,50.97,Moderate / Extended,18.44,267593,434817,1.62,4857824.0,True,True
+Exchange,Symbol,Company,Date,Close,3_Session_Return_%,Positive_Days_3D,04-Nov-2026_%,05-Nov-2026_%,06-Nov-2026_%,09-Nov-2026_%,RSI_14,RSI_Status,DMA_20,Avg_Volume_20D,Latest_Volume,Volume_Multiple,Avg_Turnover_20D_Rs,Strict,Early
+NSE,SEIL,Shanti Educational Initiatives Limited,2026-11-09,194.75,20.6,3,4.14,3.47,6.61,9.34,66.6,Preferred,169.73,234066,470620,2.01,39106841.0,True,True
+NSE,KALYANKJIL,Kalyan Jewellers India Limited,2026-11-09,611.0,15.49,3,4.1,5.85,5.49,3.43,67.79,Preferred,540.1,5482478,13926450,2.54,3008803064.0,True,True
+NSE,VGL,VARVEE GLOBAL LIMITED,2026-11-09,60.3,14.4,3,-3.51,5.56,3.77,4.43,55.55,Preferred,56.6,73028,228767,3.13,4120154.0,True,True
+NSE,ALEMBICLTD,Alembic Limited,2026-11-09,106.58,12.53,3,6.0,3.28,3.48,5.3,67.15,Preferred,93.48,559983,30160740,53.86,52929732.0,True,True
