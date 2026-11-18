@@ -1,3 +1,2 @@
-Exchange,Symbol,Company,Date,Close,3_Session_Return_%,Positive_Days_3D,11-Nov-2026_%,12-Nov-2026_%,13-Nov-2026_%,16-Nov-2026_%,RSI_14,RSI_Status,DMA_20,Avg_Volume_20D,Latest_Volume,Volume_Multiple,Avg_Turnover_20D_Rs,Strict,Early
-NSE,DHANBANK,Dhanlaxmi Bank Limited,2026-11-16,42.84,26.75,3,2.55,3.7,14.81,6.46,75.96,Moderate / Extended,34.23,7822942,95603679,12.22,298748399.0,True,True
-NSE,BNAGROCHEM,BN Agrochem Limited,2026-11-16,17.08,15.76,3,5.0,4.99,5.0,5.0,61.5,Preferred,13.61,173332,390958,2.26,2641824.0,True,True
+Exchange,Symbol,Company,Date,Close,3_Session_Return_%,Positive_Days_3D,12-Nov-2026_%,13-Nov-2026_%,16-Nov-2026_%,17-Nov-2026_%,RSI_14,RSI_Status,DMA_20,Avg_Volume_20D,Latest_Volume,Volume_Multiple,Avg_Turnover_20D_Rs,Strict,Early
+NSE,BORANA,Borana Weaves Limited,2026-11-17,253.9,11.42,3,1.42,4.13,3.32,3.57,59.02,Preferred,221.69,69777,112499,1.61,15623973.0,True,True
