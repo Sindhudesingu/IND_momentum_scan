@@ -1,2 +1,2 @@
-Exchange,Symbol,Company,Date,Close,3_Session_Return_%,Positive_Days_3D,12-Nov-2026_%,13-Nov-2026_%,16-Nov-2026_%,17-Nov-2026_%,RSI_14,RSI_Status,DMA_20,Avg_Volume_20D,Latest_Volume,Volume_Multiple,Avg_Turnover_20D_Rs,Strict,Early
-NSE,BORANA,Borana Weaves Limited,2026-11-17,253.9,11.42,3,1.42,4.13,3.32,3.57,59.02,Preferred,221.69,69777,112499,1.61,15623973.0,True,True
+Exchange,Symbol,Company,Date,Close,3_Session_Return_%,Positive_Days_3D,13-Nov-2026_%,16-Nov-2026_%,17-Nov-2026_%,18-Nov-2026_%,RSI_14,RSI_Status,DMA_20,Avg_Volume_20D,Latest_Volume,Volume_Multiple,Avg_Turnover_20D_Rs,Strict,Early
+NSE,SGFIN,SG Finserve Limited,2026-11-18,833.95,19.43,3,-1.9,6.01,7.23,5.06,74.41,Preferred,693.81,485538,1316172,2.71,347732434.0,True,True
